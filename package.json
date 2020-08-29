@@ -1,0 +1,32 @@
+{
+  "name": "frameworkless-jamstack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "gulp",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Honatas/frameworkless-jamstack.git"
+  },
+  "keywords": [
+    "frameworkless",
+    "jamstack",
+    "spa",
+    "frontend"
+  ],
+  "author": "Honatas",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Honatas/frameworkless-jamstack/issues"
+  },
+  "homepage": "https://github.com/Honatas/frameworkless-jamstack#readme",
+  "devDependencies": {
+    "del": "^5.1.0",
+    "git-rev-sync": "^2.0.0",
+    "gulp": "^4.0.2",
+    "gulp-replace": "^1.0.0"
+  }
+}
