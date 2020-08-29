@@ -2,6 +2,7 @@ const { src, dest, watch, series, parallel } = require('gulp');
 const del = require('del');
 const git = require('git-rev-sync');
 const replace = require('gulp-replace');
+const typescript = require('gulp-typescript');
 
 const target = 'dist';
 
@@ -17,11 +18,19 @@ function indexHtml() {
 }
 
 
+function ts() {
+  var project = typescript.createProject('tsconfig.json');
+  return project.src()
+    .pipe(project()).js
+    .pipe(dest(target));
+}
+
 
 const build = series(
   clean,
   parallel(
     indexHtml,
+    ts
   ),
 );
 
