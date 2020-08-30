@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "gulp",
+    "start": "gulp start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -34,6 +35,7 @@
     "git-rev-sync": "^2.0.0",
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
+    "gulp-connect": "^5.7.0",
     "gulp-declare": "^0.3.0",
     "gulp-eslint": "^6.0.0",
     "gulp-handlebars": "^5.0.2",

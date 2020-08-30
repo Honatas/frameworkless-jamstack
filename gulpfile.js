@@ -1,5 +1,6 @@
 const { src, dest, watch, series, parallel } = require('gulp');
 const concat = require('gulp-concat');
+const connect = require('gulp-connect');
 const declare = require('gulp-declare');
 const del = require('del');
 const eslint = require('gulp-eslint');
@@ -14,6 +15,10 @@ const uglify = require('gulp-uglify');
 const wrap = require('gulp-wrap');
 
 const target = 'dist';
+
+const jsLib = [
+  'node_modules/handlebars/dist/handlebars.runtime.min.js',
+];
 
 function clean() {
   return del('dist');
@@ -65,12 +70,29 @@ function partials() {
 
 function js() {
   return merge(
+    src(jsLib),
     ts(),
     merge(
       templates(),
       partials()))
     .pipe(concat(`app.${git.short()}.js`))
     .pipe(dest(`${target}/js`));
+}
+
+function server(cb) {
+  connect.server({
+    root: 'dist',
+    port: 3001,
+    livereload: true,
+    fallback: target + '/index.html'
+  });
+  cb();
+}
+
+function watchers(cb) {
+  watch('src/index.html', indexHtml);
+  watch(['src/**/*.ts', 'src/**/*.hbs', 'src/handlebars-helpers.js'], js);
+  cb();
 }
 
 const build = series(
@@ -81,16 +103,13 @@ const build = series(
   ),
 );
 
-// const start = series(
-//   build,
-//   parallel(
-//       server,
-//       reverseProxy,
-//       watchers
-//   )
-// );
+const start = series(
+  build,
+  parallel(
+    server,
+    watchers
+  )
+);
 
 exports.default = build;
-// exports.start = start;
-exports.clean = clean;
-// exports.lint = lint;
+exports.start = start;

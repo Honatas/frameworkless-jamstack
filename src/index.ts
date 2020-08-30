@@ -1,4 +1,4 @@
 window.onload = (): void => {
   const app = new App();
-  app.mount(document.getElementById('root'));
+  app.load(document.getElementById('root'), {world: "Frameworkless JAMStack"});
 }
