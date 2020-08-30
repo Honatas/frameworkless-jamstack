@@ -13,14 +13,14 @@ class Component {
    * Overwrite this method to send a request to backend using params, them call mount using the response as data.
    * As a default we just bypass the params as data.
    */
-  public load(mountPoint: HTMLElement, params?: any, onMounted?: () => void) {
+  public load(mountPoint: HTMLElement, params?: any, onMounted?: () => void): void {
     this.mount(mountPoint, params, onMounted);
   }
 
   /**
    * Mounts the rendered html inside the mount point.
    */
-  public mount(mountPoint: HTMLElement, data?: unknown, onMounted?: () => void) {
+  public mount(mountPoint: HTMLElement, data?: unknown, onMounted?: () => void): void {
     mountPoint.innerHTML = this.render(data);
     this.configure(data);
     if (onMounted) {
