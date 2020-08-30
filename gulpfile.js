@@ -64,13 +64,11 @@ function partials() {
 }
 
 function js() {
-  let stream = ts();
-  stream = merge(
-    stream,
-    templates(),
-    partials(),
-  );
-  return stream
+  return merge(
+    ts(),
+    merge(
+      templates(),
+      partials()))
     .pipe(concat(`app.${git.short()}.js`))
     .pipe(dest(`${target}/js`));
 }
@@ -79,7 +77,7 @@ const build = series(
   clean,
   parallel(
     indexHtml,
-    js
+    js,
   ),
 );
 
