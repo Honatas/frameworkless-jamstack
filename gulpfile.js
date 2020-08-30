@@ -1,5 +1,6 @@
 const { src, dest, watch, series, parallel } = require('gulp');
 const del = require('del');
+const eslint = require('gulp-eslint');
 const git = require('git-rev-sync');
 const replace = require('gulp-replace');
 const typescript = require('gulp-typescript');
@@ -21,6 +22,8 @@ function indexHtml() {
 function ts() {
   var project = typescript.createProject('tsconfig.json');
   return project.src()
+    .pipe(eslint())
+    .pipe(eslint.format())
     .pipe(project()).js
     .pipe(dest(target));
 }
