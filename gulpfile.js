@@ -10,6 +10,8 @@ const merge = require('merge2');
 const pipeline = require('readable-stream').pipeline;
 const rename = require('gulp-rename');
 const replace = require('gulp-replace');
+const rollup = require('gulp-better-rollup');
+const rollupTs = require('@rollup/plugin-typescript');
 const typescript = require('gulp-typescript');
 const uglify = require('gulp-uglify');
 const wrap = require('gulp-wrap');
@@ -27,18 +29,24 @@ function clean() {
 function indexHtml() {
   return src('src/index.html')
   .pipe(replace('[version]', git.short()))
-  .pipe(dest(target));
-  // .pipe(connect.reload());
+  .pipe(dest(target))
+  .pipe(connect.reload());
 }
 
+function lint() {
+  return typescript.createProject('tsconfig.json').src()
+    .pipe(eslint())
+    .pipe(eslint.format());
+}
 
 function ts() {
-  var project = typescript.createProject('tsconfig.json');
-  return project.src()
-    .pipe(eslint())
-    .pipe(eslint.format())
-    .pipe(project()).js;
-    // .pipe(connect.reload());
+  lint();
+  return src('src/index.ts')
+    .pipe(rollup({
+      plugins: [rollupTs()],
+    }, {
+      format: 'iife',
+    }));
 }
 
 function templates() {
@@ -76,7 +84,8 @@ function js() {
       templates(),
       partials()))
     .pipe(concat(`app.${git.short()}.js`))
-    .pipe(dest(`${target}/js`));
+    .pipe(dest(`${target}/js`))
+    .pipe(connect.reload());
 }
 
 function server(cb) {
@@ -113,3 +122,4 @@ const start = series(
 
 exports.default = build;
 exports.start = start;
+exports.lint = lint;

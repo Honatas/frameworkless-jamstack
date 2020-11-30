@@ -1,6 +1,6 @@
-let Hbs: Record<string, (arg0: unknown) => string>;
+declare let Hbs: Record<string, (arg0: unknown) => string>;
 
-class Component {
+export class Component {
 
   /**
    * @param template the name of the template to be used on render
