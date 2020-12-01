@@ -1,4 +1,9 @@
 # frameworkless-jamstack
+
+[![GitHub](https://img.shields.io/github/license/honatas/frameworkless-jamstack?style=plastic)](https://github.com/Honatas/frameworkless-jamstack)
+[![typescript](https://img.shields.io/badge/made%20with-Typescript-blue?style=plastic)](https://www.typescriptlang.org/)
+[![coffee](https://img.shields.io/badge/buy%20me%20a-coffee-brown?style=plastic)](https://ko-fi.com/honatas)
+
 Proof of concept - you can create SPA frontends without a Virtual DOM framework (Angular, React, etc).
 
 ## But Why ?
