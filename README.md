@@ -7,8 +7,13 @@ Most of the time, all web applications we are making are actually master-detail 
 
 ## So what, get back to old-times vanilla ?
 
-Of course not. Typescript is here to stay. Also, the concept of SPA (Single Page Applications) and having a bundled single javascript file are too good to be left aside. So the proposal here is to get all of these without resorting to any overcomplex Virtual DOM framework.  
+Of course not. Typescript is here to stay. Also, the concepts of SPA (Single Page Applications) and having a bundled single javascript file are too good to be left aside. So the proposal here is to get all of these without resorting to any overcomplex Virtual DOM framework.  
 
 ## Then how ?
 
 Soon... (work in progress)
+
+## References
+
+[Frameworkless](https://www.frameworklessmovement.org/)  
+[Jamstack](https://jamstack.org)  
