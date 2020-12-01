@@ -1,5 +1,5 @@
 # frameworkless-jamstack
-Proof of concept - you can develop SPA frontends without a framework
+Proof of concept - you can develop SPA frontends without a Virtual DOM framework (Angular, React, etc).
 
 ## WIP - Work in Progress
 

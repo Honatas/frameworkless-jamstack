@@ -15,7 +15,6 @@
   "rules": {
     "@typescript-eslint/explicit-module-boundary-types": 1,
     "@typescript-eslint/no-unsafe-member-access": 1,
-    "@typescript-eslint/no-explicit-any": 1,
-    "@typescript-eslint/explicit-function-return-type": 2
+    "@typescript-eslint/no-explicit-any": 1
   }
 }

@@ -24,7 +24,7 @@ export class Component {
    */
   public mount(mountPoint: HTMLElement | null, data?: unknown, onMounted?: () => void): void {
     if (mountPoint === null) {
-      console.error('Mount point is null');
+      console.error(`Mount point is null: ${this.template}`);
       return;
     }
     mountPoint.innerHTML = this.render(data);
