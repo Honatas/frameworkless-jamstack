@@ -20,7 +20,7 @@ There are innumerous ways to achieve this, given the vast options of libraries t
 
 In this proof of concept I have tried to use non opinionated libraries as much as possible. Also, have in mind that this is not a one size fits all project, it is much of a starting point upon which to build your own applications and have freedom to include and/or remove any functionality as you seem fit.  
 
-First of all: you will need a build tool, because transpiling and bundling a whole project on the command line can be complicated. I've chosen [Gulp](https://gulpjs.com/), not only because it is unopinionated, but also because it is highly pluggable and offers a vast amount of plugins - including a hot-reload development server called [gulp-connect](https://www.npmjs.com/package/gulp-connect) - and, if we need something else, we can create our own plugins. This was not required though.  
+First of all: we need a build tool, because transpiling and bundling a whole project on the command line can be complicated. I've chosen [Gulp](https://gulpjs.com/), not only because it is imperative and unopinionated, but also because it is highly pluggable and offers a vast amount of plugins - including a hot-reload development server called [gulp-connect](https://www.npmjs.com/package/gulp-connect) - and, if we need something else, we can create our own plugins. This was not required though.  
 
 Second: we need [Typescript](https://www.typescriptlang.org/) because, well ... thing is, if you don't love Typescript, it is because you don't know it yet.  
 

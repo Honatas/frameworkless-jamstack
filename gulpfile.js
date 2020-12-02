@@ -8,6 +8,7 @@ const git = require('git-rev-sync');
 const handlebars = require('gulp-handlebars');
 const merge = require('merge2');
 const pipeline = require('readable-stream').pipeline;
+const postcss = require('gulp-postcss');
 const rename = require('gulp-rename');
 const replace = require('gulp-replace');
 const rollup = require('gulp-better-rollup');
@@ -37,6 +38,13 @@ function lint() {
   return typescript.createProject('tsconfig.json').src()
     .pipe(eslint())
     .pipe(eslint.format());
+}
+
+function css() {
+  return src('src/**/*.css')
+    .pipe(postcss())
+    .pipe(dest(target + `/css/app.${git.short()}.css`))
+    .pipe(connect.reload());
 }
 
 function ts() {
@@ -100,6 +108,7 @@ function server(cb) {
 
 function watchers(cb) {
   watch('src/index.html', indexHtml);
+  watch('src/**/*.css', css);
   watch(['src/**/*.ts', 'src/**/*.hbs', 'src/handlebars-helpers.js'], js);
   cb();
 }
@@ -108,6 +117,7 @@ const build = series(
   clean,
   parallel(
     indexHtml,
+    css,
     js,
   ),
 );
