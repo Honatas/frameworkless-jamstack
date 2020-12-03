@@ -14,3 +14,9 @@
   @apply text-white;
   @apply px-3;
 }
+
+.form-button:disabled {
+  @apply bg-purple-300;
+  @apply border-purple-300;
+  @apply cursor-wait;
+}

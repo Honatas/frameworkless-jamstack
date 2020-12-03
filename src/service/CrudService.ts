@@ -10,6 +10,14 @@ export class CrudService {
     }
   }
 
+  public async getSearchResults(): Promise<void> {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve()
+      }, 500);
+    });
+  }
+
   private getOptionsMock(): Promise<Option[]> {
     return new Promise((resolve) => {
       setTimeout(() => {
