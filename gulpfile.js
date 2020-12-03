@@ -38,7 +38,8 @@ function css() {
   return src('src/**/*.css')
     .pipe(postcss())
     .pipe(concat(`app.${git.short()}.css`))
-    .pipe(dest(`${target}/css`)).pipe(connect.reload());
+    .pipe(dest(`${target}/css`))
+    .pipe(connect.reload());
 }
 
 function lintTs() {

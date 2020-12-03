@@ -14,9 +14,7 @@ export class AppRouter extends Router {
         '/': () => new Home(),
         '/crud': () => new Crud(),
       },
-      afterRouting: (routeName) => {
-        AppRouter.activateMenuButton(routeName);
-      }
+      afterRouting: (routeName) => AppRouter.activateMenuButton(routeName),
     });
   }
 
