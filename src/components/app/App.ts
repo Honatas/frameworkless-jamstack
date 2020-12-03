@@ -5,14 +5,17 @@ export class App extends Component {
 
   constructor() {
     super('app', () => {
-      AppRouter.getInstance().init();
+      const router = AppRouter.getInstance();
+      router.init();
+
       document.getElementById('bt-menu-home')?.addEventListener('click', (e) => {
         App.toggleMenuButtonActive(e);
-        AppRouter.getInstance().routeTo('/');
+        router.routeTo('/');
       });
+      
       document.getElementById('bt-menu-crud')?.addEventListener('click', (e) => {
         App.toggleMenuButtonActive(e);
-        AppRouter.getInstance().routeTo('/crud');
+        router.routeTo('/crud');
       });
     });
   }

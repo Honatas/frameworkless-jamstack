@@ -1,5 +1,5 @@
+import { Crud } from "../components/crud/Crud";
 import { Home } from "../components/home/Home";
-import { Routed } from "../components/routed/Routed";
 import { Router } from "../engine/Router";
 
 export class AppRouter extends Router {
@@ -12,7 +12,7 @@ export class AppRouter extends Router {
       targetElementId: 'router-area',
       routes: {
         '/': () => new Home(),
-        '/routed': () => new Routed(),
+        '/crud': () => new Crud(),
       },
     });
   }

@@ -1,8 +1,8 @@
 import { Component } from "../../engine/Component";
 
-export class Routed extends Component {
+export class Crud extends Component {
 
     constructor() {
-        super('routed');
+        super('crud');
     }
 }

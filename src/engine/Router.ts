@@ -83,6 +83,6 @@ export class Router {
   }
 
   private logPrefix(): string {
-    return '[Router on ' + this.options.context + ']: ';
+    return `[Router on ${this.options.context}]: `;
   }
 }
