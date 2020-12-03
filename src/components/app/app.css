@@ -1,3 +1,7 @@
+body {
+  @apply bg-gray-200;
+}
+
 .menu-button {
   @apply bg-purple-800;
   @apply p-2;

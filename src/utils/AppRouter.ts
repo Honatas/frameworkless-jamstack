@@ -14,6 +14,9 @@ export class AppRouter extends Router {
         '/': () => new Home(),
         '/crud': () => new Crud(),
       },
+      afterRouting: (routeName) => {
+        AppRouter.activateMenuButton(routeName);
+      }
     });
   }
 
@@ -22,5 +25,16 @@ export class AppRouter extends Router {
       AppRouter.instance = new AppRouter();
     }
     return AppRouter.instance;
+  }
+
+  private static activateMenuButton(routeName: string): void {
+    Array.from(document.getElementsByClassName('menu-button')).forEach((el) => {
+      el.classList.remove('menu-button-active');
+    });
+    let buttonId = 'bt-menu-' + routeName.substring(1);
+    if (buttonId === 'bt-menu-') {
+      buttonId += 'home';
+    }
+    document.getElementById(buttonId)?.classList.add('menu-button-active');
   }
 }

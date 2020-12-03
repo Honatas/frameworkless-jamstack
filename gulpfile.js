@@ -34,12 +34,6 @@ function indexHtml() {
   .pipe(connect.reload());
 }
 
-function lint() {
-  return typescript.createProject('tsconfig.json').src()
-    .pipe(eslint())
-    .pipe(eslint.format());
-}
-
 function css() {
   return src('src/**/*.css')
     .pipe(postcss())
@@ -47,8 +41,14 @@ function css() {
     .pipe(dest(`${target}/css`)).pipe(connect.reload());
 }
 
+function lintTs() {
+  return typescript.createProject('tsconfig.json').src()
+    .pipe(eslint())
+    .pipe(eslint.format());
+}
+
 function ts() {
-  lint();
+  lintTs();
   return src('src/index.ts')
     .pipe(rollup({
       plugins: [rollupTs()],
@@ -132,4 +132,4 @@ const start = series(
 
 exports.default = build;
 exports.start = start;
-exports.lint = lint;
+exports.lint = lintTs;

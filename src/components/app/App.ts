@@ -7,23 +7,8 @@ export class App extends Component {
     super('app', () => {
       const router = AppRouter.getInstance();
       router.init();
-
-      document.getElementById('bt-menu-home')?.addEventListener('click', (e) => {
-        App.toggleMenuButtonActive(e);
-        router.routeTo('/');
-      });
-      
-      document.getElementById('bt-menu-crud')?.addEventListener('click', (e) => {
-        App.toggleMenuButtonActive(e);
-        router.routeTo('/crud');
-      });
+      document.getElementById('bt-menu-home')?.addEventListener('click', () => router.routeTo('/'));
+      document.getElementById('bt-menu-crud')?.addEventListener('click', () => router.routeTo('/crud'));
     });
-  }
-
-  private static toggleMenuButtonActive(e: Event): void {
-    Array.from(document.getElementsByClassName('menu-button')).forEach((el) => {
-      el.classList.remove('menu-button-active');
-    });
-    (e.target as HTMLElement).classList.add('menu-button-active');
   }
 }
