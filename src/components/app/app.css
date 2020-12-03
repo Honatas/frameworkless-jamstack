@@ -1,0 +1,15 @@
+.menu-button {
+  @apply bg-purple-800;
+  @apply p-2;
+  @apply rounded-2xl;
+  @apply border-white;
+  @apply border-2;
+  @apply w-full;
+  @apply mb-2;
+}
+
+.menu-button-active {
+  @apply bg-white;
+  @apply border-purple-800;
+  @apply text-purple-800;
+}
