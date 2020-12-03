@@ -18,3 +18,12 @@ body {
   @apply border-purple-800;
   @apply text-purple-800;
 }
+
+.loader {
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #3498db;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  @apply animate-spin;
+}

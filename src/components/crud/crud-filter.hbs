@@ -1,0 +1,18 @@
+<div class="p-3 flex">
+  <div>
+    Search filter:
+    <select class="form-field">
+      {{#each options}}
+        <option value="{{ value }}">{{ label }}</option>
+      {{/each}}
+    </select>
+  </div>
+
+  <div>
+    <input type="text" class="form-field"/>
+  </div>
+
+  <div>
+    <button type="button" class="form-button">Search</button>
+  </div>
+</div>

@@ -18,7 +18,7 @@ export class CrudService {
           { value: 2, label: 'Option 2'},
           { value: 3, label: 'Option 3'},
         ]);
-      }, 750);
+      }, 500);
     });
   }
 }
