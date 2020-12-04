@@ -1,5 +1,6 @@
 import { Component } from "../../engine/Component";
 import { CrudService } from "../../service/CrudService";
+import { CrudGrid } from "./CrudGrid";
 
 export class CrudFilter extends Component {
 
@@ -9,13 +10,17 @@ export class CrudFilter extends Component {
     });
   }
 
-  private static async onSearchClick(): Promise<void> {
+  private static onSearchClick(): void {
+    (document.getElementById('crud-grid') as HTMLElement).innerHTML = '';
     (document.getElementById('bt-search') as HTMLButtonElement).disabled = true;
-    (document.getElementById('crud-loader') as HTMLElement).style.display = 'block';
+    (document.getElementById('crud-loader') as HTMLElement).style.display = '';
 
-    const results = await new CrudService().getSearchResults();
-
-    (document.getElementById('bt-search') as HTMLButtonElement).disabled = false;
-    (document.getElementById('crud-loader') as HTMLElement).style.display = 'none';
+    new CrudService().getSearchResults()
+      .then(results => {
+        new CrudGrid().mount(document.getElementById('crud-grid'), { results });
+        (document.getElementById('bt-search') as HTMLButtonElement).disabled = false;
+        (document.getElementById('crud-loader') as HTMLElement).style.display = 'none';
+      })
+      .catch(err => console.log(err));
   }
 }
