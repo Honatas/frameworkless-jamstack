@@ -6,6 +6,10 @@
 
 Proof of concept - you can create SPA frontends without a Virtual DOM framework (Angular, React, etc).
 
+## Live
+
+[https://frameworkless-jamstack.web.app](https://frameworkless-jamstack.web.app)
+
 ## But Why ?
 
 Most of the time, all web applications we are making are actually master-detail pages for CRUDs, not home brokers. Data doesn't change in real-time and you don't need "blazing fast" rendering, just normal DOM speed is more than enough. Data binding and Virtual DOM rendering are overkill in these cases, taking up machine resources (memory, cpu) you'll not exactly take much advantage of.  
