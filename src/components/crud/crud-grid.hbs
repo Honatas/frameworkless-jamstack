@@ -1,4 +1,18 @@
 <div class="p-3">
-
-Oe
+  <table class="w-full">
+    <tr class="bg-indigo-300 text-left">
+      <th>Name</th>
+      <th>Data</th>
+      <th>More Data</th>
+      <th>Actions</th>
+    </tr>
+    {{#each results}}
+    <tr class="hover:bg-indigo-100">
+      <td>{{ data1 }}</td>
+      <td>{{ data2 }}</td>
+      <td>{{ data3 }}</td>
+      <td></td>
+    </tr>
+    {{/each}}
+  </table>
 </div>
