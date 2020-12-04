@@ -11,8 +11,26 @@
       <td>{{ data1 }}</td>
       <td>{{ data2 }}</td>
       <td>{{ data3 }}</td>
-      <td></td>
+      <td>
+        <button type="button" data-id="{{ id }}" class="bt-delete bg-red-500 text-sm text-white rounded px-2">X</button>
+      </td>
     </tr>
     {{/each}}
   </table>
+</div>
+
+<div id="modal-delete" class="modal w-1/3">
+  <div class="flex flex-row-reverse">
+    <button type="button" id="bt-close-modal" class="px-3">X</button>
+  </div>
+  <div class="font-bold">
+    Are you sure?
+  </div>
+  <div class="py-5">
+    Record with id <span id="record-id"></span> is going to be deleted. Is this OK?
+  </div>
+  <div class="flex flex-row-reverse">
+    <button type="button" id="bt-ok-modal" class="form-button">OK</button>
+    <button type="button" id="bt-cancel-modal" class="form-button-light">Cancel</button>
+  </div>
 </div>

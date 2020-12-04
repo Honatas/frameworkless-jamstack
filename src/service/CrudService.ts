@@ -11,6 +11,13 @@ export class CrudService {
     return this.getSearchResultsMock();
   }
 
+  public delete(id: number): Promise<void> {
+    return new Promise((resolve) => {
+      console.log(`Record with id ${id} has been deleted. Trust me.`)
+      setTimeout(() => resolve(), 500);
+    });
+  }
+
   private getOptionsMock(): Promise<Option[]> {
     return new Promise((resolve) => {
       setTimeout(() => {

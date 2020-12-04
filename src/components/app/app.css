@@ -2,6 +2,33 @@ body {
   @apply bg-gray-200;
 }
 
+#modal-backdrop {
+  display: none;
+  position: fixed;
+  z-index: 900;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal {
+  display: none;
+  z-index: 901;
+  @apply rounded;
+  @apply bg-white;
+  @apply p-4;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+button {
+  @apply focus:outline-none;
+}
+
 .menu-button {
   @apply bg-purple-800;
   @apply p-2;
@@ -10,13 +37,42 @@ body {
   @apply border-2;
   @apply w-full;
   @apply mb-2;
-  @apply focus:outline-none;
 }
 
 .menu-button-active {
   @apply bg-white;
   @apply border-purple-800;
   @apply text-purple-800;
+}
+
+.form-field {
+  @apply m-2;
+  @apply py-1;
+  @apply px-2;
+  @apply border-2;
+  @apply border-purple-800;
+  @apply rounded;
+  @apply focus:outline-none focus:ring focus:border-blue-800;
+}
+
+.form-button {
+  @apply form-field;
+  @apply bg-purple-800;
+  @apply text-white;
+  @apply px-3;
+}
+
+.form-button-light {
+  @apply form-field;
+  @apply bg-white;
+  @apply border;
+  @apply px-3;
+}
+
+.form-button:disabled {
+  @apply bg-purple-300;
+  @apply border-purple-300;
+  @apply cursor-wait;
 }
 
 .loader {
