@@ -7,14 +7,13 @@ const eslint = require('gulp-eslint');
 const git = require('git-rev-sync');
 const handlebars = require('gulp-handlebars');
 const merge = require('merge2');
-const pipeline = require('readable-stream').pipeline;
 const postcss = require('gulp-postcss');
 const rename = require('gulp-rename');
 const replace = require('gulp-replace');
 const rollup = require('gulp-better-rollup');
 const rollupTs = require('@rollup/plugin-typescript');
+const terser = require('gulp-terser');
 const typescript = require('gulp-typescript');
-const uglify = require('gulp-uglify');
 const wrap = require('gulp-wrap');
 
 const target = 'dist';
@@ -86,12 +85,21 @@ function partials() {
 }
 
 function js() {
-  return merge(
-    src(jsLib),
+  let stream = merge(
     ts(),
     merge(
       templates(),
-      partials()))
+      partials()
+    )
+  );
+  if (process.env.NODE_ENV === 'production') {
+    stream = stream.pipe(terser());
+  }
+
+  return merge(
+    src(jsLib),
+    stream
+  )
     .pipe(concat(`app.${git.short()}.js`))
     .pipe(dest(`${target}/js`))
     .pipe(connect.reload());
