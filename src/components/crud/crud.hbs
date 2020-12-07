@@ -1,11 +1,30 @@
-<div id="crud-filter"></div>
+<div id="crud-area">
+  <div id="crud-filter"></div>
 
-<div id="crud-loader" class="flex">
-  <div class="flex-grow"></div>
-  <div class="p-3">
-    <div class="loader"></div>
+  <div id="crud-loader" class="flex">
+    <div class="flex-grow"></div>
+    <div class="p-3">
+      <div class="loader"></div>
+    </div>
+    <div class="flex-grow"></div>
   </div>
-  <div class="flex-grow"></div>
+
+  <div id="crud-grid"></div>
 </div>
 
-<div id="crud-grid"></div>
+<hr/>
+
+<div class="p-3">
+  <p>
+    Disclaimer: there is no back-end to support this sample, the data is not going to change despite your interactions. You can configure below a delay to simulate
+    all fetch operations on an imaginary back-end. This will show the capacity to disable parts of the screen as well as show a loader.
+  </p>
+</div>
+
+<div class="flex p-3">
+  <div>
+    Backend Simulated Delay:
+    <input type="text" id="sim-delay" class="form-field w-20" value="{{ simDelay }}"/>
+    ms
+  </div>
+</div>

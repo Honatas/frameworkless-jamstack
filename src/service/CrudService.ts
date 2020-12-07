@@ -1,5 +1,6 @@
 import { Option } from '../model/Option';
 import { Result } from '../model/Result';
+import { StorageUtil } from '../utils/StorageUtil';
 
 export class CrudService {
 
@@ -14,7 +15,7 @@ export class CrudService {
   public delete(id: number): Promise<void> {
     return new Promise((resolve) => {
       console.log(`Record with id ${id} has been deleted. Trust me.`)
-      setTimeout(() => resolve(), 500);
+      setTimeout(() => resolve(), StorageUtil.getSimDelay());
     });
   }
 
@@ -26,7 +27,7 @@ export class CrudService {
           { value: 2, label: 'Option 2'},
           { value: 3, label: 'Option 3'},
         ]);
-      }, 500);
+      }, StorageUtil.getSimDelay());
     });
   }
 
@@ -38,7 +39,7 @@ export class CrudService {
           { id: 2, data1: 'Good name', data2: 'Good data', data3: 'Better data'},
           { id: 3, data1: 'Awesome name', data2: 'Awesome data', data3: 'Spectacular data'},
         ]);
-      }, 500);
+      }, StorageUtil.getSimDelay());
     });
   }
 }

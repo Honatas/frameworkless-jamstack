@@ -1,7 +1,7 @@
 <div class="p-3 flex">
   <div>
     Search filter:
-    <select class="form-field">
+    <select id="filter-options" class="form-field">
       {{#each options}}
         <option value="{{ value }}">{{ label }}</option>
       {{/each}}
@@ -9,7 +9,7 @@
   </div>
 
   <div>
-    <input type="text" class="form-field"/>
+    <input type="text" id="filter-input" class="form-field"/>
   </div>
 
   <div>

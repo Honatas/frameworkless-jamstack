@@ -7,11 +7,13 @@ export class CrudFilter extends Component {
   constructor() {
     super('crud-filter', () => {
       document.getElementById('bt-search')?.addEventListener('click', () => CrudFilter.onSearchClick());
+      document.getElementById('filter-options')?.addEventListener('change', () => CrudFilter.clearGrid());
+      document.getElementById('filter-input')?.addEventListener('change', () => CrudFilter.clearGrid());
     });
   }
 
   private static onSearchClick(): void {
-    (document.getElementById('crud-grid') as HTMLElement).innerHTML = '';
+    CrudFilter.clearGrid();
     (document.getElementById('bt-search') as HTMLButtonElement).disabled = true;
     (document.getElementById('crud-loader') as HTMLElement).style.display = '';
 
@@ -22,5 +24,9 @@ export class CrudFilter extends Component {
         (document.getElementById('crud-loader') as HTMLElement).style.display = 'none';
       })
       .catch(err => console.log(err));
+  }
+
+  private static clearGrid(): void {
+    (document.getElementById('crud-grid') as HTMLElement).innerHTML = '';
   }
 }
