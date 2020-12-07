@@ -24,7 +24,7 @@ Check out the [Live Demo](https://frameworkless-jamstack.web.app) for more infor
 
 ## Building / Running
 
-Clone this project, navigate to its folder, then run **npm install** and **npm start**, check the app running on [http://localhost:3001](http://localhost:3001).  
+You need to have [NodeJS](https://nodejs.org) installed. Clone this project, navigate to its folder, then run **npm install** and **npm start**. Check the app running on your browser on [http://localhost:3001](http://localhost:3001).  
 
 ## References
 
