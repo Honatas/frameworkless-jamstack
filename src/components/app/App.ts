@@ -9,6 +9,7 @@ export class App extends Component {
       router.init();
       document.getElementById('bt-menu-home')?.addEventListener('click', () => router.routeTo('/'));
       document.getElementById('bt-menu-crud')?.addEventListener('click', () => router.routeTo('/crud'));
+      document.getElementById('bt-menu-tech')?.addEventListener('click', () => router.routeTo('/tech'));
     });
   }
 }

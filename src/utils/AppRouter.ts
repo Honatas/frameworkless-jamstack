@@ -1,5 +1,6 @@
 import { Crud } from "../components/crud/Crud";
 import { Home } from "../components/home/Home";
+import { Tech } from "../components/tech/Tech";
 import { Router } from "../engine/Router";
 
 export class AppRouter extends Router {
@@ -13,6 +14,7 @@ export class AppRouter extends Router {
       routes: {
         '/': () => new Home(),
         '/crud': () => new Crud(),
+        '/tech': () => new Tech(),
       },
       afterRouting: (routeName) => AppRouter.activateMenuButton(routeName),
     });

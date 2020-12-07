@@ -1,0 +1,9 @@
+#home-area {
+  max-width: 900px;
+}
+
+.home-title {
+  @apply font-bold;
+  @apply text-lg;
+  @apply mt-5;
+}
