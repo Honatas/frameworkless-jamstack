@@ -12,9 +12,9 @@ export class AppRouter extends Router {
       context: '/',
       targetElementId: 'router-area',
       routes: {
-        '/': () => new Home(),
-        '/crud': () => new Crud(),
-        '/tech': () => new Tech(),
+        '/': () => new Home(this),
+        '/crud': () => new Crud(this),
+        '/tech': () => new Tech(this),
       },
       afterRouting: (routeName) => AppRouter.activateMenuButton(routeName),
     });

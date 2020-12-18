@@ -1,3 +1,5 @@
+import { Router } from "./Router";
+
 declare let Hbs: Record<string, (arg0: unknown) => string>;
 
 export class Component {
@@ -5,10 +7,12 @@ export class Component {
   /**
    * @param template the name of the template to be used on render
    * @param configure method to apply changes to the DOM after the template has been mounted
+   * @param router if this component has to redirect to a route, pass the router as a parameter here
    */
   constructor(
     protected template: string,
     protected configure?: (data: unknown) => void,
+    protected router?: Router,
   ) {}
 
   /**
@@ -51,5 +55,15 @@ export class Component {
     }
 
     return hbs(data);
+  }
+
+  /**
+   * Proxy to Router::routeTo using the router passed as parameter on the constructor
+   */
+  public routeTo(routeName: string, params?: unknown, onMounted?: () => void): void {
+    if (!this.router) {
+      return;
+    }
+    this.router.routeTo(routeName, params, onMounted);
   }
 }
