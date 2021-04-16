@@ -1,0 +1,4 @@
+# Netlify config file
+
+# Setup redirect 404s to index.html
+/*    /index.html   200

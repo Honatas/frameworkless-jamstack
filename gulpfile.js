@@ -115,6 +115,14 @@ function server(cb) {
   cb();
 }
 
+function netlify(cb) {
+  if (process.env.NODE_ENV === 'production') {
+    return src('config/_redirects').pipe(dest(target));
+  } else {
+    cb();
+  }
+}
+
 function watchers(cb) {
   watch('src/index.html', indexHtml);
   watch('src/**/*.css', css);
@@ -125,6 +133,7 @@ function watchers(cb) {
 const build = series(
   clean,
   parallel(
+    netlify,
     indexHtml,
     css,
     js,
