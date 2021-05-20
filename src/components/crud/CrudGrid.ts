@@ -17,19 +17,20 @@ export class CrudGrid extends Component {
     (document.getElementById('record-id') as HTMLElement).innerHTML = (e.target as HTMLButtonElement).dataset.id as string;
     document.getElementById('bt-close-modal')?.addEventListener('click', () => Modal.close('modal-delete'));
     document.getElementById('bt-cancel-modal')?.addEventListener('click', () => Modal.close('modal-delete'));
-    document.getElementById('bt-ok-modal')?.addEventListener('click', () => CrudGrid.delete(parseInt(id)));
+    document.getElementById('bt-ok-modal')?.addEventListener('click', () => void CrudGrid.delete(parseInt(id)));
     Modal.open('modal-delete');
   }
 
-  private static delete(id: number): void {
+  private static async delete(id: number): Promise<void> {
     const btOk = document.getElementById('bt-ok-modal') as HTMLButtonElement;
     btOk.disabled = true;
-
-    new CrudService().delete(id)
-    .then(() => {
-      btOk.disabled = false;
+    try {
+      await new CrudService().delete(id);
+    } catch (err) {
+      console.log(err);
+    } finally {
       Modal.close('modal-delete');
-    })
-    .catch(err => console.log(err));
+      btOk.disabled = false;
+    }
   }
 }

@@ -6,24 +6,26 @@ export class CrudFilter extends Component {
 
   constructor() {
     super('crud-filter', () => {
-      document.getElementById('bt-search')?.addEventListener('click', () => CrudFilter.onSearchClick());
+      document.getElementById('bt-search')?.addEventListener('click', () => void CrudFilter.onSearchClick());
       document.getElementById('filter-options')?.addEventListener('change', () => CrudFilter.clearGrid());
       document.getElementById('filter-input')?.addEventListener('change', () => CrudFilter.clearGrid());
     });
   }
 
-  private static onSearchClick(): void {
+  private static async onSearchClick(): Promise<void> {
     CrudFilter.clearGrid();
     (document.getElementById('bt-search') as HTMLButtonElement).disabled = true;
     (document.getElementById('crud-loader') as HTMLElement).style.display = '';
 
-    new CrudService().getSearchResults()
-    .then(results => {
+    try {
+      const results = await new CrudService().getSearchResults();
       new CrudGrid().mount(document.getElementById('crud-grid'), { results });
+    } catch (err) {
+      console.error(err);
+    } finally {
       (document.getElementById('bt-search') as HTMLButtonElement).disabled = false;
       (document.getElementById('crud-loader') as HTMLElement).style.display = 'none';
-    })
-    .catch(err => console.log(err));
+    }
   }
 
   private static clearGrid(): void {
