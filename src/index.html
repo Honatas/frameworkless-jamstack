@@ -12,6 +12,15 @@
 </head>
 <body>
   <div id="root"></div>
-  <script src="/js/app.js?v=[version]"></script>
+  <script>
+    var ua = window.navigator.userAgent;
+    if (ua.indexOf('MSIE ') > -1 || ua.indexOf('Trident/') > -1) {
+      document.getElementById('root').innerHTML = '<h2>Your browser is too old! Click <a href="http://browsehappy.com">here</a> to update.</h2>';
+    } else {
+      var appScript = document.createElement('script');
+      appScript.setAttribute('src', '/js/app.js?v=[version]'); 
+      document.body.appendChild(appScript);
+    }
+  </script>
 </body>
 </html>
