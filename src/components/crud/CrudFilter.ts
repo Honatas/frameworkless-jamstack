@@ -1,5 +1,5 @@
-import { Component } from "../../engine/Component";
-import { CrudService } from "../../service/CrudService";
+import { Component } from "src/engine/Component";
+import { CrudService } from "src/service/CrudService";
 import { CrudGrid } from "./CrudGrid";
 
 export class CrudFilter extends Component {

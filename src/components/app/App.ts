@@ -1,5 +1,5 @@
-import { Component } from "../../engine/Component";
-import { AppRouter } from "../../utils/AppRouter";
+import { Component } from "src/engine/Component";
+import { AppRouter } from "src/utils/AppRouter";
 
 export class App extends Component {
 

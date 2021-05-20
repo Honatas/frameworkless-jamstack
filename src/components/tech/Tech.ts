@@ -1,5 +1,5 @@
-import { Component } from "../../engine/Component";
-import { Router } from "../../engine/Router";
+import { Component } from "src/engine/Component";
+import { Router } from "src/engine/Router";
 
 export class Tech extends Component {
 

@@ -1,6 +1,6 @@
-import { Option } from '../model/Option';
-import { Result } from '../model/Result';
-import { StorageUtil } from '../utils/StorageUtil';
+import { Option } from 'src/model/Option';
+import { Result } from 'src/model/Result';
+import { StorageUtil } from 'src/utils/StorageUtil';
 
 export class CrudService {
 

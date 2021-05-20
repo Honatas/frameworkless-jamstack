@@ -1,7 +1,7 @@
-import { Crud } from "../components/crud/Crud";
-import { Home } from "../components/home/Home";
-import { Tech } from "../components/tech/Tech";
-import { Router } from "../engine/Router";
+import { Crud } from "src/components/crud/Crud";
+import { Home } from "src/components/home/Home";
+import { Tech } from "src/components/tech/Tech";
+import { Router } from "src/engine/Router";
 
 export class AppRouter extends Router {
 

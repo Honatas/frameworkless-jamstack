@@ -1,7 +1,7 @@
-import { Component } from "../../engine/Component";
-import { Router } from "../../engine/Router";
-import { CrudService } from "../../service/CrudService";
-import { StorageUtil } from "../../utils/StorageUtil";
+import { Component } from "src/engine/Component";
+import { Router } from "src/engine/Router";
+import { CrudService } from "src/service/CrudService";
+import { StorageUtil } from "src/utils/StorageUtil";
 import { CrudFilter } from "./CrudFilter";
 
 export class Crud extends Component {

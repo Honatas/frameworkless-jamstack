@@ -1,6 +1,6 @@
-import { Component } from "../../engine/Component";
-import { CrudService } from "../../service/CrudService";
-import { Modal } from "../../utils/Modal";
+import { Component } from "src/engine/Component";
+import { CrudService } from "src/service/CrudService";
+import { Modal } from "src/utils/Modal";
 
 export class CrudGrid extends Component {
 
