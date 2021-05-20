@@ -36,7 +36,7 @@ function indexHtml() {
 function css() {
   return src('src/**/*.css')
     .pipe(postcss())
-    .pipe(concat(`app.${git.short()}.css`))
+    .pipe(concat('app.css'))
     .pipe(dest(`${target}/css`))
     .pipe(connect.reload());
 }
@@ -100,7 +100,7 @@ function js() {
     src(jsLib),
     stream
   )
-    .pipe(concat(`app.${git.short()}.js`))
+    .pipe(concat('app.js'))
     .pipe(dest(`${target}/js`))
     .pipe(connect.reload());
 }
