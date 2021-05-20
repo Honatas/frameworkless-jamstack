@@ -5,8 +5,8 @@ export class Home extends Component {
 
   constructor(router: Router) {
     super('home', () => {
-      document.getElementById('bt-link-crud')?.addEventListener('click', () => router.routeTo('/crud'));
-      document.getElementById('bt-link-tech')?.addEventListener('click', () => router.routeTo('/tech'));
+      document.getElementById('bt-link-crud')?.addEventListener('click', () => void router.routeTo('/crud'));
+      document.getElementById('bt-link-tech')?.addEventListener('click', () => void router.routeTo('/tech'));
     }, router);
   }
 }

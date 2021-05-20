@@ -19,8 +19,11 @@ export class Component {
    * Overwrite this method to send a request to backend using params, them call mount using the response as data.
    * As a default we just bypass the params as data.
    */
-  public load(mountPoint: HTMLElement | null, params?: unknown, onMounted?: () => void): void {
-    this.mount(mountPoint, params, onMounted);
+  public async load(mountPoint: HTMLElement | null, params?: unknown, onMounted?: () => void): Promise<void> {
+    return new Promise((resolve) => {
+      this.mount(mountPoint, params, onMounted);
+      resolve();
+    });
   }
 
   /**
@@ -60,10 +63,10 @@ export class Component {
   /**
    * Proxy to Router::routeTo using the router passed as parameter on the constructor
    */
-  public routeTo(routeName: string, params?: unknown, onMounted?: () => void): void {
+  public async routeTo(routeName: string, params?: unknown, onMounted?: () => void): Promise<void> {
     if (!this.router) {
       return;
     }
-    this.router.routeTo(routeName, params, onMounted);
+    await this.router.routeTo(routeName, params, onMounted);
   }
 }

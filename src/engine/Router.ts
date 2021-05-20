@@ -29,11 +29,11 @@ export class Router {
     this.currentRoute = this.findRoute(window.location.pathname);
   }
 
-  public init(): void {
-    this.loadRoute(this.currentRoute);
+  public async init(): Promise<void> {
+    await this.loadRoute(this.currentRoute);
   }
 
-  private loadRoute(routeName: string, params?: unknown, onMounted?: () => void): void {
+  private async loadRoute(routeName: string, params?: unknown, onMounted?: () => void): Promise<void> {
     if (this.options.beforeRouting && !this.options.beforeRouting()) {
       return;
     }
@@ -41,20 +41,20 @@ export class Router {
     const route = this.options.routes[this.findRoute(routeName)];
     if (!route) {
       console.error(this.logPrefix() + 'Route ' + routeName + ' not registered');
-      this.routeTo('/');
+      await this.routeTo('/');
       return;
     }
-    route().load(document.getElementById(this.options.targetElementId), params, onMounted);
+    await route().load(document.getElementById(this.options.targetElementId), params, onMounted);
 
     if (this.options.afterRouting) {
       this.options.afterRouting(route.name);
     }
   }
 
-  public routeTo(routeName: string, params?: unknown, onMounted?: () => void): void {
+  public async routeTo(routeName: string, params?: unknown, onMounted?: () => void): Promise<void> {
     this.currentRoute = routeName;
     this.changeHistory(routeName);
-    this.loadRoute(routeName, params, onMounted);
+    await this.loadRoute(routeName, params, onMounted);
   }
 
   private findRoute(path: string): string {
