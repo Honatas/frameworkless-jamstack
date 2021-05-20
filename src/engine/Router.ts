@@ -8,7 +8,7 @@ interface RouterOptions {
   context: string,
   targetElementId: string,
   routes: Routes,
-  beforeRouting?: () => boolean,// = ():boolean => true,
+  beforeRouting?: () => boolean,
   afterRouting?: (routeName: string) => void,
 }
 

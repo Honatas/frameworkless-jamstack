@@ -24,12 +24,12 @@ export class CrudGrid extends Component {
   private static delete(id: number): void {
     const btOk = document.getElementById('bt-ok-modal') as HTMLButtonElement;
     btOk.disabled = true;
-    
+
     new CrudService().delete(id)
-      .then(() => {
-        btOk.disabled = false;
-        Modal.close('modal-delete');
-      })
-      .catch(err => console.log(err));
+    .then(() => {
+      btOk.disabled = false;
+      Modal.close('modal-delete');
+    })
+    .catch(err => console.log(err));
   }
 }

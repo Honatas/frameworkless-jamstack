@@ -18,12 +18,12 @@ export class CrudFilter extends Component {
     (document.getElementById('crud-loader') as HTMLElement).style.display = '';
 
     new CrudService().getSearchResults()
-      .then(results => {
-        new CrudGrid().mount(document.getElementById('crud-grid'), { results });
-        (document.getElementById('bt-search') as HTMLButtonElement).disabled = false;
-        (document.getElementById('crud-loader') as HTMLElement).style.display = 'none';
-      })
-      .catch(err => console.log(err));
+    .then(results => {
+      new CrudGrid().mount(document.getElementById('crud-grid'), { results });
+      (document.getElementById('bt-search') as HTMLButtonElement).disabled = false;
+      (document.getElementById('crud-loader') as HTMLElement).style.display = 'none';
+    })
+    .catch(err => console.log(err));
   }
 
   private static clearGrid(): void {

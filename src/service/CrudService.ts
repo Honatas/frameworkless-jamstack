@@ -5,7 +5,7 @@ import { StorageUtil } from '../utils/StorageUtil';
 export class CrudService {
 
   public getOptions(): Promise<Option[]> {
-    return this.getOptionsMock();  
+    return this.getOptionsMock();
   }
 
   public getSearchResults(): Promise<Result[]> {
@@ -14,7 +14,7 @@ export class CrudService {
 
   public delete(id: number): Promise<void> {
     return new Promise((resolve) => {
-      console.log(`Record with id ${id} has been deleted. Trust me.`)
+      console.log(`Record with id ${id} has been deleted. Trust me.`);
       setTimeout(() => resolve(), StorageUtil.getSimDelay());
     });
   }

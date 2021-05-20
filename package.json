@@ -1,6 +1,6 @@
 {
   "name": "frameworkless-jamstack",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Proof of concept - you can create SPA frontends without a Virtual DOM framework (Angular, React, etc).",
   "main": "index.js",
   "scripts": {
