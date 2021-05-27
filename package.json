@@ -26,10 +26,6 @@
   },
   "homepage": "https://github.com/Honatas/frameworkless-jamstack#readme",
   "dependencies": {
-    "handlebars": "^4.7.6",
-    "tailwindcss": "^2.0.1"
-  },
-  "devDependencies": {
     "@rollup/plugin-typescript": "^6.1.0",
     "@typescript-eslint/eslint-plugin": "^3.10.1",
     "@typescript-eslint/parser": "^3.10.1",
@@ -50,12 +46,14 @@
     "gulp-terser": "^2.0.0",
     "gulp-typescript": "^6.0.0-alpha.1",
     "gulp-wrap": "^0.15.0",
+    "handlebars": "^4.7.6",
     "merge2": "^1.4.1",
     "postcss": "^8.1.10",
     "postcss-custom-properties": "^10.0.0",
     "postcss-import": "^13.0.0",
     "postcss-nested": "^5.0.1",
     "rollup": "^2.34.0",
+    "tailwindcss": "^2.0.1",
     "tslib": "^2.0.3",
     "typescript": "^4.0.2"
   }

@@ -28,7 +28,6 @@
     "no-negated-condition": 2,
     "no-trailing-spaces": 1,
     "no-unneeded-ternary": 2,
-    // "no-unused-expressions": 1,
     "no-whitespace-before-property": 2,
     "one-var-declaration-per-line": 2,
     "semi": [1, "always", {"omitLastInOneLineBlock": true}],
@@ -41,6 +40,7 @@
     "spaced-comment": 1,
     "@typescript-eslint/explicit-module-boundary-types": 1,
     "@typescript-eslint/no-unsafe-member-access": 1,
-    "@typescript-eslint/no-explicit-any": 1
+    "@typescript-eslint/no-explicit-any": 1,
+    "@typescript-eslint/no-unused-expressions": 1
   }
 }
