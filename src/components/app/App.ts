@@ -6,10 +6,11 @@ export class App extends Component {
   constructor() {
     super('app', async() => {
       const router = AppRouter.getInstance();
+      AppRouter.activateMenuButton(window.location.pathname);
       await router.init();
-      document.getElementById('bt-menu-home')?.addEventListener('click', () => void router.routeTo('/'));
-      document.getElementById('bt-menu-crud')?.addEventListener('click', () => void router.routeTo('/crud'));
-      document.getElementById('bt-menu-tech')?.addEventListener('click', () => void router.routeTo('/tech'));
+      document.getElementById('bt-menu-home')?.addEventListener('click', () => void router.handleMenuButtonClick('/'));
+      document.getElementById('bt-menu-crud')?.addEventListener('click', () => void router.handleMenuButtonClick('/crud'));
+      document.getElementById('bt-menu-tech')?.addEventListener('click', () => void router.handleMenuButtonClick('/tech'));
     });
   }
 }
