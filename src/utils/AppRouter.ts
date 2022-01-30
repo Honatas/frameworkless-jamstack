@@ -15,7 +15,7 @@ export class AppRouter extends Router {
         '/': () => new Home(this),
         '/crud': () => new Crud(this),
         '/tech': () => new Tech(this),
-      }
+      },
     });
   }
 
@@ -26,9 +26,9 @@ export class AppRouter extends Router {
     return AppRouter.instance;
   }
 
-  public async handleMenuButtonClick(routeName: string) {
+  public async handleMenuButtonClick(routeName: string): Promise<void> {
     AppRouter.activateMenuButton(routeName);
-    await this.routeTo(routeName)
+    await this.routeTo(routeName);
   }
 
   public static activateMenuButton(routeName: string): void {
