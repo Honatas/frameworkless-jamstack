@@ -16,7 +16,6 @@ export class AppRouter extends Router {
         '/crud': () => new Crud(this),
         '/tech': () => new Tech(this),
       },
-      afterRouting: (routeName) => AppRouter.activateMenuButton(routeName),
     });
   }
 
@@ -27,7 +26,12 @@ export class AppRouter extends Router {
     return AppRouter.instance;
   }
 
-  private static activateMenuButton(routeName: string): void {
+  public async handleMenuButtonClick(routeName: string): Promise<void> {
+    AppRouter.activateMenuButton(routeName);
+    await this.routeTo(routeName);
+  }
+
+  public static activateMenuButton(routeName: string): void {
     Array.from(document.getElementsByClassName('menu-button')).forEach((el) => {
       el.classList.remove('menu-button-active');
     });
